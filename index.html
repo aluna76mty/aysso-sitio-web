@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Residencia de lujo en Fraccionamiento Aysso. Vistas al Cañón del Huajuco. 385m² de construcción. Entrega verano 2026. NiuHomes.">
+<title>Residencia Aysso · NiuHomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0a07;--bg2:#131008;--bg3:#1c1914;
+  --stone:#c4a265;--gold:#d4af6a;--sdim:rgba(196,162,101,.12);
+  --txt:#ede5d5;--dim:#a09080;--muted:#685e52;
+  --bdr:rgba(196,162,101,.18);--wht:#f5ead8;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',system-ui,sans-serif;
+  --fm:'DM Mono','Courier New',monospace;
+  --nh:76px;--px:clamp(20px,5vw,80px);--py:clamp(64px,8vw,120px)
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--stone)}
+::selection{background:var(--stone);color:var(--bg)}
+img{display:block;max-width:100%}
+a{text-decoration:none}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px}
+
+/* ── NAV ── */
+#nav{position:fixed;inset:0 0 auto 0;z-index:900;height:var(--nh);display:flex;align-items:center;
+  padding:0 var(--px);gap:40px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+#nav.on{background:rgba(12,10,7,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:var(--bdr)}
+.nav-logo{height:52px;object-fit:contain}
+.nav-links{display:flex;gap:36px;list-style:none;margin:0 auto}
+.nav-links a{font-family:var(--fm);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);transition:color .3s}
+.nav-links a:hover{color:var(--stone)}
+.nav-cta{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--bg);background:var(--stone);padding:11px 26px;transition:background .3s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold)}
+.nav-ham{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:6px;gap:5px;flex-direction:column}
+.nav-ham span{display:block;width:22px;height:1px;background:var(--txt);transition:.3s}
+
+/* MOBILE NAV */
+#mnav{position:fixed;inset:0;z-index:850;background:var(--bg2);display:flex;flex-direction:column;
+  justify-content:center;align-items:center;gap:4px;opacity:0;pointer-events:none;transition:opacity .4s}
+#mnav.open{opacity:1;pointer-events:all}
+#mnav a{font-family:var(--fd);font-size:clamp(26px,7vw,46px);font-weight:300;color:var(--dim);
+  letter-spacing:.04em;transition:color .3s;padding:10px 20px}
+#mnav a:hover{color:var(--stone)}
+
+/* ── HERO ── */
+#hero{position:relative;height:100svh;min-height:580px;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:var(--px);padding-bottom:clamp(36px,5vw,70px)}
+#hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-ov{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(165deg,rgba(12,10,7,.12) 0%,rgba(12,10,7,.08) 35%,rgba(12,10,7,.55) 65%,rgba(12,10,7,.96) 100%)}
+.hero-c{position:relative;z-index:2;max-width:900px}
+.h-eye{font-family:var(--fm);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone);
+  margin-bottom:18px;opacity:0;transform:translateY(12px);animation:aup .8s ease .4s forwards}
+.h-h1{font-family:var(--fd);font-size:clamp(52px,10vw,138px);font-weight:300;line-height:.88;
+  color:var(--wht);margin-bottom:32px;opacity:0;animation:aup 1.1s ease .55s forwards}
+.h-h1 em{font-style:italic;color:var(--stone)}
+.h-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  opacity:0;animation:aup .9s ease .9s forwards}
+.h-plbl{font-family:var(--fm);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);margin-bottom:6px}
+.h-price{font-family:var(--fd);font-size:clamp(24px,4vw,50px);font-weight:400;color:var(--wht)}
+.h-btns{display:flex;gap:12px;align-items:center}
+.btn-fill{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--bg);background:var(--stone);padding:15px 36px;border:none;cursor:pointer;
+  transition:background .3s,transform .2s;display:inline-block}
+.btn-fill:hover{background:var(--gold);transform:translateY(-1px)}
+.btn-ghost{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt);background:transparent;padding:14px 32px;border:1px solid var(--bdr);
+  cursor:pointer;transition:border-color .3s,color .3s;display:inline-block}
+.btn-ghost:hover{border-color:var(--stone);color:var(--stone)}
+.h-scroll{position:absolute;bottom:40px;right:var(--px);z-index:2;display:flex;flex-direction:column;
+  align-items:center;gap:10px;opacity:0;animation:afade 1s ease 1.3s forwards}
+.h-scroll span{font-family:var(--fm);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);writing-mode:vertical-lr}
+.sline{width:1px;height:56px;background:linear-gradient(var(--stone),transparent);animation:spulse 2.2s ease-in-out infinite}
+
+/* ── STATS ── */
+#stats{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);display:flex;overflow-x:auto;scrollbar-width:none}
+#stats::-webkit-scrollbar{display:none}
+.stat{flex:1;min-width:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:28px 20px;border-right:1px solid var(--bdr);text-align:center}
+.stat:last-child{border-right:none}
+.sn{font-family:var(--fd);font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--stone);line-height:1;margin-bottom:6px}
+.sl{font-family:var(--fm);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* ── SECTION COMMON ── */
+.sp{padding:var(--py) var(--px)}
+.stag{display:flex;align-items:center;gap:14px;font-family:var(--fm);font-size:10px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--stone);margin-bottom:18px}
+.stag::before{content:'';display:block;width:28px;height:1px;background:var(--stone);flex-shrink:0}
+.sh2{font-family:var(--fd);font-size:clamp(36px,5.5vw,76px);font-weight:400;color:var(--wht);line-height:1.02;margin-bottom:24px}
+.sh2 em{font-style:italic;color:var(--stone)}
+.sbody{font-size:15px;font-weight:300;color:var(--dim);line-height:1.85;max-width:660px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ── HISTORIA ── */
+#historia{background:var(--bg)}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:52px;align-items:start}
+.hquote{font-family:var(--fd);font-size:clamp(17px,2.2vw,27px);font-weight:400;font-style:italic;
+  color:var(--stone);line-height:1.65;padding-left:28px;border-left:2px solid var(--stone)}
+.htxt{font-size:15px;font-weight:300;color:var(--dim);line-height:1.9}
+.htxt p+p{margin-top:18px}
+.htxt strong{color:var(--stone);font-weight:400}
+.hfac{margin-top:52px;width:100%;height:clamp(240px,38vw,560px);object-fit:cover;filter:brightness(.88) saturate(.85)}
+
+/* ── GALLERY ── */
+#galeria{background:var(--bg2)}
+.ghead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:20px}
+.fwrap{display:flex;gap:3px}
+.fbtn{font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);background:transparent;border:1px solid var(--bdr);padding:8px 18px;cursor:pointer;transition:all .3s}
+.fbtn.on,.fbtn:hover{background:var(--sdim);border-color:var(--stone);color:var(--stone)}
+.ggrid{columns:3;column-gap:10px}
+.gi{break-inside:avoid;margin-bottom:10px;overflow:hidden;position:relative;cursor:pointer}
+.gi img{width:100%;display:block;transition:transform .65s ease,filter .65s ease;filter:brightness(.82) saturate(.88)}
+.gi:hover img{transform:scale(1.04);filter:brightness(.95) saturate(1)}
+.gcap{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,10,7,.75) 0%,transparent 55%);
+  opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:14px}
+.gi:hover .gcap{opacity:1}
+.glbl{font-family:var(--fm);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
+
+/* ── FEATURES ── */
+#caracteristicas{background:var(--bg)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px;margin-top:52px;border:1px solid var(--bdr)}
+.fc{padding:36px 32px;border:1px solid var(--bdr);transition:background .35s}
+.fc:hover{background:var(--sdim)}
+.fi{font-size:20px;margin-bottom:14px;opacity:.75}
+.fn{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--wht);line-height:1.15;margin-bottom:8px}
+.fd2{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+.ft{font-family:var(--fm);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:12px}
+
+/* ── FRACCIONAMIENTO ── */
+#fraccionamiento{background:var(--bg2)}
+.fragrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:52px}
+.fphotos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fphotos img{width:100%;height:auto;display:block;filter:brightness(.85) saturate(.9);transition:filter .4s}
+.fphotos img:hover{filter:brightness(.95) saturate(1)}
+.fphotos img:first-child{grid-column:1 / -1}
+.alist{list-style:none}
+.ait{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--bdr)}
+.ait:first-child{border-top:1px solid var(--bdr)}
+.aico{width:34px;height:34px;border:1px solid var(--bdr);display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;margin-top:2px}
+.aname{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--wht);margin-bottom:3px}
+.adesc{font-size:12px;font-weight:300;color:var(--muted)}
+
+/* ── CALIDAD ── */
+#calidad{background:var(--bg3);position:relative;overflow:hidden}
+#calidad::after{content:'';position:absolute;top:-120px;right:-80px;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(196,162,101,.05) 0%,transparent 70%);pointer-events:none}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:52px}
+.slist{list-style:none}
+.sitem{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--bdr);align-items:flex-start}
+.snum{font-family:var(--fm);font-size:10px;color:var(--stone);opacity:.55;flex-shrink:0;padding-top:4px}
+.sname{font-family:var(--fd);font-size:19px;font-weight:500;color:var(--wht);margin-bottom:5px}
+.sdesc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+
+/* ── OPCIONES ── */
+#opciones{background:var(--bg)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
+.pkg{border:1px solid var(--bdr);padding:44px 40px;transition:border-color .3s}
+.pkg:hover{border-color:rgba(196,162,101,.4)}
+.pkg.feat{border-color:var(--stone);background:var(--sdim)}
+.pbadge{font-family:var(--fm);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bg);background:var(--stone);padding:5px 14px;display:inline-block;margin-bottom:28px}
+.pname{font-family:var(--fd);font-size:clamp(26px,3.5vw,44px);font-weight:400;color:var(--wht);line-height:1.05;margin-bottom:14px}
+.pdesc{font-size:14px;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:28px}
+.pprice{font-family:var(--fd);font-size:clamp(30px,4vw,52px);font-weight:400;color:var(--stone);margin-bottom:6px}
+.pcurr{font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:28px}
+.plist{list-style:none;margin-bottom:32px}
+.pf{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:13px;font-weight:300;
+  color:var(--dim);border-bottom:1px solid rgba(196,162,101,.07)}
+.pf::before{content:'—';color:var(--stone);flex-shrink:0}
+
+/* ── CONTACTO ── */
+#contacto{background:var(--bg2)}
+.cgrid2{display:grid;grid-template-columns:1.15fr 1fr;gap:72px;margin-top:52px;align-items:start}
+.cform{display:flex;flex-direction:column;gap:3px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.cg{display:flex;flex-direction:column}
+.clbl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone);padding:11px 14px 0;background:var(--bg3)}
+.cinp,.csel,.ctxt{background:var(--bg3);border:none;border-bottom:1px solid var(--bdr);
+  padding:7px 14px 14px;color:var(--txt);font-family:var(--fb);font-size:15px;font-weight:300;
+  outline:none;transition:border-color .3s;width:100%}
+.csel{cursor:pointer}
+.csel option{background:var(--bg3)}
+.cinp:focus,.csel:focus,.ctxt:focus{border-color:var(--stone)}
+.ctxt{resize:none;height:110px;line-height:1.6}
+.csub{font-family:var(--fm);font-size:12px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--bg);background:var(--stone);border:none;padding:20px;cursor:pointer;transition:background .3s;margin-top:3px}
+.csub:hover{background:var(--gold)}
+.cok{display:none;padding:18px;background:var(--sdim);border:1px solid var(--stone);
+  font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--stone);text-align:center}
+.cinfo{display:flex;flex-direction:column;gap:36px}
+.cilbl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}
+.cival{font-family:var(--fd);font-size:20px;font-weight:400;color:var(--wht);line-height:1.5}
+.cival a{color:inherit;transition:color .3s}
+.cival a:hover{color:var(--stone)}
+.wabtn{display:inline-flex;align-items:center;gap:12px;font-family:var(--fm);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:#25d366;padding:15px 26px;
+  transition:background .3s,transform .25s;margin-top:8px}
+.wabtn:hover{background:#1dba57;transform:translateY(-2px)}
+
+/* FLOAT WA */
+#waf{position:fixed;bottom:28px;right:28px;z-index:500;width:54px;height:54px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 22px rgba(37,211,102,.45);transition:transform .3s,box-shadow .3s}
+#waf:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.55)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--px);
+  display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.flogo{height:56px;object-fit:contain;opacity:.85}
+.ftxt{font-family:var(--fm);font-size:9px;letter-spacing:.14em;color:var(--muted)}
+
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;z-index:950;background:rgba(12,10,7,.97);display:flex;align-items:center;
+  justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+#lb.on{opacity:1;pointer-events:all}
+#lb img{max-width:90vw;max-height:90vh;width:auto;height:auto;display:block}
+#lbx{position:absolute;top:24px;right:32px;background:none;border:none;color:var(--dim);
+  font-size:32px;font-weight:200;cursor:pointer;line-height:1;transition:color .3s}
+#lbx:hover{color:var(--stone)}
+#lbp,#lbn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--bdr);
+  color:var(--dim);font-size:22px;width:48px;height:48px;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;transition:border-color .3s,color .3s}
+#lbp{left:24px}#lbn{right:24px}
+#lbp:hover,#lbn:hover{border-color:var(--stone);color:var(--stone)}
+
+/* KEYFRAMES */
+@keyframes aup{to{opacity:1;transform:none}}
+@keyframes afade{to{opacity:1}}
+@keyframes spulse{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .ggrid{columns:2}
+  .hgrid{grid-template-columns:1fr;gap:36px}
+  .fragrid{grid-template-columns:1fr;gap:40px}
+  .cgrid{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr}
+  .cgrid2{grid-template-columns:1fr;gap:52px}
+}
+@media(max-width:768px){
+  :root{--nh:62px}
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .ggrid{columns:1}
+  .crow{grid-template-columns:1fr}
+  .h-btns{flex-wrap:wrap}
+  .fgrid{grid-template-columns:1fr}
+  .fphotos{grid-template-columns:1fr}
+  .fphotos img:first-child{height:220px}
+  .fphotos img:not(:first-child){height:160px}
+  .pkg{padding:28px 22px}
+  .fwrap{flex-wrap:wrap}
+}
+@media(max-width:480px){.h-row{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#inicio"><img src="LOGO1.png" alt="NiuHomes" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="#historia">La Residencia</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#fraccionamiento">Fraccionamiento</a></li>
+    <li><a href="#opciones">Opciones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Solicitar Información</a>
+  <button class="nav-ham" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mnav">
+  <a href="#historia" class="ml">La Residencia</a>
+  <a href="#galeria" class="ml">Galería</a>
+  <a href="#fraccionamiento" class="ml">Fraccionamiento</a>
+  <a href="#opciones" class="ml">Opciones</a>
+  <a href="#contacto" class="ml">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="inicio">
+  <div id="hero">
+    <video autoplay muted loop playsinline poster="ChatGPT Image 3 jun 2026, 11_33_28 a.m..png">
+      <source src="0618.mp4" type="video/mp4">
+    </video>
+    <div class="hero-ov"></div>
+    <div class="hero-c">
+      <p class="h-eye">Fraccionamiento Aysso &nbsp;·&nbsp; Cañón del Huajuco &nbsp;·&nbsp; Nuevo León</p>
+      <h1 class="h-h1"><em>Una Residencia</em><br>Singular</h1>
+      <div class="h-row">
+        <div>
+          <p class="h-plbl">Precio de Venta</p>
+          <p class="h-price">MXN $10,950,000</p>
+        </div>
+        <div class="h-btns">
+          <a href="#galeria" class="btn-ghost">Ver Galería</a>
+          <a href="#contacto" class="btn-fill">Más Información</a>
+        </div>
+      </div>
+    </div>
+    <div class="h-scroll"><div class="sline"></div><span>Descubrir</span></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stat rv"><span class="sn">385</span><span class="sl">m² Construcción</span></div>
+  <div class="stat rv d1"><span class="sn">260+</span><span class="sl">m² Terreno</span></div>
+  <div class="stat rv d2"><span class="sn">3–4</span><span class="sl">Recámaras</span></div>
+  <div class="stat rv d3"><span class="sn">4</span><span class="sl">Baños Completos</span></div>
+  <div class="stat rv d4"><span class="sn">2026</span><span class="sl">Entrega Verano</span></div>
+</div>
+
+<!-- HISTORIA -->
+<section id="historia" class="sp">
+  <div class="stag rv">La Residencia</div>
+  <h2 class="sh2 rv d1">Diseño que <em>impone<br>y acoge</em></h2>
+  <div class="hgrid">
+    <blockquote class="hquote rv d1">
+      "Desde el primer instante, esta residencia impone su carácter. De líneas contemporáneas y elegantes, la fachada es un diálogo perfecto entre la calidez de los listonados tipo madera, la robustez de la piedra y una iluminación cálida estratégicamente diseñada para resaltar cada volumen arquitectónico."
+    </blockquote>
+    <div class="htxt rv d2">
+      <p>El elemento de agua en la entrada no solo es un detalle visual, es una transición sensorial que te da la bienvenida y te invita a dejar el mundo afuera.</p>
+      <p>Bienvenidos a su próximo hogar en <strong>Aysso</strong>, un fraccionamiento privado rodeado de naturaleza con vistas espectaculares al <strong>Cañón del Huajuco</strong>. Esta residencia de más de 385 m² fue diseñada pensando en la fluidez y la convivencia.</p>
+      <p>Al entrar, son recibidos por una imponente <strong>doble altura</strong>, mientras que el área social —sala, comedor y cocina en concepto abierto— se integra de forma natural con la terraza y la alberca en el jardín exterior.</p>
+      <p>Pensando en la comodidad a largo plazo, la recámara principal se encuentra a tan solo <strong>medio nivel</strong> de la planta baja, una ventaja arquitectónica invaluable.</p>
+    </div>
+  </div>
+  <img src="ChatGPT Image 3 jun 2026, 11_33_28 a.m..png" alt="Fachada Residencia Aysso" class="hfac rv">
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="sp">
+  <div class="ghead">
+    <div>
+      <div class="stag rv">Espacios</div>
+      <h2 class="sh2 rv d1">Galería</h2>
+    </div>
+    <div class="fwrap rv d2">
+      <button class="fbtn on" data-f="all">Todos</button>
+      <button class="fbtn" data-f="social">Áreas Sociales</button>
+      <button class="fbtn" data-f="exterior">Exteriores</button>
+    </div>
+  </div>
+  <div class="ggrid" id="gal">
+    <div class="gi rv" data-cat="social"><img src="sala.png" alt="Sala" loading="lazy"><div class="gcap"><span class="glbl">Sala Principal</span></div></div>
+    <div class="gi rv d1" data-cat="social"><img src="aysso_render (1).jpg" alt="Recibidor" loading="lazy"><div class="gcap"><span class="glbl">Recibidor</span></div></div>
+    <div class="gi rv d2" data-cat="social"><img src="aysso_render (3).jpg" alt="Sala & Comedor" loading="lazy"><div class="gcap"><span class="glbl">Sala & Comedor</span></div></div>
+    <div class="gi rv" data-cat="social"><img src="aysso_render (5).jpg" alt="Comedor" loading="lazy"><div class="gcap"><span class="glbl">Comedor</span></div></div>
+    <div class="gi rv d1" data-cat="social"><img src="aysso_render (7).jpg" alt="Cocina Integral" loading="lazy"><div class="gcap"><span class="glbl">Cocina Integral</span></div></div>
+    <div class="gi rv d2" data-cat="social"><img src="aysso_render (13).jpg" alt="Hall de Acceso" loading="lazy"><div class="gcap"><span class="glbl">Hall de Acceso</span></div></div>
+    <div class="gi rv" data-cat="social"><img src="aysso_render (15).jpg" alt="Sala" loading="lazy"><div class="gcap"><span class="glbl">Sala</span></div></div>
+    <div class="gi rv d1" data-cat="social"><img src="aysso_render (18).jpg" alt="Comedor & Cocina" loading="lazy"><div class="gcap"><span class="glbl">Comedor & Cocina</span></div></div>
+    <div class="gi rv d2" data-cat="social"><img src="aysso_render (4).jpg" alt="Área Social" loading="lazy"><div class="gcap"><span class="glbl">Área Social</span></div></div>
+    <div class="gi rv" data-cat="social"><img src="aysso_render (6).jpg" alt="Living" loading="lazy"><div class="gcap"><span class="glbl">Living</span></div></div>
+    <div class="gi rv d1" data-cat="social"><img src="aysso_render (8).jpg" alt="Interior" loading="lazy"><div class="gcap"><span class="glbl">Interior</span></div></div>
+    <div class="gi rv d2" data-cat="social"><img src="aysso_render (14).jpg" alt="Interior" loading="lazy"><div class="gcap"><span class="glbl">Interior</span></div></div>
+    <div class="gi rv" data-cat="social"><img src="aysso_render (16).jpg" alt="Comedor" loading="lazy"><div class="gcap"><span class="glbl">Comedor</span></div></div>
+    <div class="gi rv d1" data-cat="social"><img src="aysso_render (17).jpg" alt="Área Íntima" loading="lazy"><div class="gcap"><span class="glbl">Área Íntima</span></div></div>
+    <div class="gi rv d2" data-cat="exterior"><img src="aysso_render (10).jpg" alt="Alberca Privada" loading="lazy"><div class="gcap"><span class="glbl">Alberca Privada</span></div></div>
+    <div class="gi rv" data-cat="exterior"><img src="aysso_render (19).jpg" alt="Terraza & Asador" loading="lazy"><div class="gcap"><span class="glbl">Terraza & Asador</span></div></div>
+    <div class="gi rv d1" data-cat="exterior"><img src="aysso_render (20).jpg" alt="Jardín & Terraza" loading="lazy"><div class="gcap"><span class="glbl">Jardín & Terraza</span></div></div>
+    <div class="gi rv d2" data-cat="exterior"><img src="aysso_render (22).jpg" alt="Patio Exterior" loading="lazy"><div class="gcap"><span class="glbl">Patio Exterior</span></div></div>
+    <div class="gi rv" data-cat="exterior"><img src="aysso_render (9).jpg" alt="Jardín" loading="lazy"><div class="gcap"><span class="glbl">Jardín</span></div></div>
+    <div class="gi rv d1" data-cat="exterior"><img src="aysso_render (11).jpg" alt="Exterior" loading="lazy"><div class="gcap"><span class="glbl">Exterior</span></div></div>
+    <div class="gi rv d2" data-cat="exterior"><img src="aysso_render (12).jpg" alt="Exterior" loading="lazy"><div class="gcap"><span class="glbl">Exterior</span></div></div>
+    <div class="gi rv" data-cat="exterior"><img src="aysso_render (21).jpg" alt="Vista" loading="lazy"><div class="gcap"><span class="glbl">Vista</span></div></div>
+    <div class="gi rv d1" data-cat="exterior"><img src="aysso_render(23).png" alt="Render" loading="lazy"><div class="gcap"><span class="glbl">Exterior</span></div></div>
+  </div>
+</section>
+
+<!-- CARACTERÍSTICAS -->
+<section id="caracteristicas" class="sp">
+  <div class="stag rv">Distribución & Diseño</div>
+  <h2 class="sh2 rv d1">Cada espacio,<br><em>pensado</em></h2>
+  <div class="fgrid">
+    <div class="fc rv"><div class="fi">⬆</div><div class="fn">Doble Altura</div><div class="fd2">Recibidor imponente que marca la primera impresión al cruzar la puerta.</div></div>
+    <div class="fc rv d1"><div class="fi">🪟</div><div class="fn">Concepto Abierto</div><div class="fd2">Sala, comedor y cocina integrados, fluyendo hacia terraza y alberca.</div><div class="ft">Espacio social sin fronteras</div></div>
+    <div class="fc rv d2"><div class="fi">🛏</div><div class="fn">Recámara a Medio Nivel</div><div class="fd2">Principal a medio nivel de planta baja — accesibilidad y comodidad superiores a largo plazo.</div><div class="ft">Ventaja arquitectónica única</div></div>
+    <div class="fc rv"><div class="fi">🚪</div><div class="fn">Cuarto Flexible</div><div class="fd2">Con baño completo y acceso independiente. Ideal como 4ª recámara, suite de visitas o estudio.</div><div class="ft">3 a 4 recámaras</div></div>
+    <div class="fc rv d1"><div class="fi">🏊</div><div class="fn">Alberca Privada</div><div class="fd2">Espejo de agua en piedra, amplio patio y área de convivencia al aire libre.</div></div>
+    <div class="fc rv d2"><div class="fi">🌿</div><div class="fn">Balcones Privados</div><div class="fd2">Las dos recámaras secundarias en planta alta cuentan con baño, clóset y balcón propio.</div></div>
+    <div class="fc rv"><div class="fi">💼</div><div class="fn">Home Office</div><div class="fd2">Área de trabajo dedicada integrada en la distribución del hogar.</div></div>
+    <div class="fc rv d1"><div class="fi">🚗</div><div class="fn">Cochera Amplia</div><div class="fd2">Techada, con capacidad para vehículos de gran formato.</div></div>
+    <div class="fc rv d2"><div class="fi">☀️</div><div class="fn">Preparada para el Futuro</div><div class="fd2">Instalaciones listas para paneles solares, minisplit y generador eléctrico de emergencia.</div><div class="ft">Eficiencia energética</div></div>
+  </div>
+</section>
+
+<!-- FRACCIONAMIENTO -->
+<section id="fraccionamiento" class="sp">
+  <div class="stag rv">El Entorno</div>
+  <h2 class="sh2 rv d1">Fraccionamiento<br><em>Aysso</em></h2>
+  <div class="fragrid">
+    <div class="fphotos rv d1">
+      <img src="colonia (1).jpg" alt="Vista aérea Aysso" loading="lazy">
+      <img src="colonia (2).jpg" alt="Fraccionamiento Aysso" loading="lazy">
+      <img src="colonia (3).jpg" alt="Amenidades Aysso" loading="lazy">
+      <img src="colonia.png" alt="Aysso Paraíso Mágico" loading="lazy">
+    </div>
+    <div class="rv d2">
+      <p class="sbody" style="margin-bottom:32px">Un fraccionamiento privado en armonía con la naturaleza y vistas espectaculares al <strong style="color:var(--stone);font-weight:400">Cañón del Huajuco</strong>. Seguridad, comunidad y amenidades premium a su disposición.</p>
+      <ul class="alist">
+        <li class="ait"><div class="aico">🔒</div><div><div class="aname">Seguridad 24/7</div><div class="adesc">Acceso controlado, barda perimetral y vigilancia permanente.</div></div></li>
+        <li class="ait"><div class="aico">🏊</div><div><div class="aname">Gran Alberca</div><div class="adesc">Alberca de uso común para todos los residentes.</div></div></li>
+        <li class="ait"><div class="aico">💪</div><div><div class="aname">Gimnasio Equipado</div><div class="adesc">Equipamiento completo para mantenerse en forma sin salir.</div></div></li>
+        <li class="ait"><div class="aico">🎉</div><div><div class="aname">Salón de Eventos</div><div class="adesc">Espacio premium con área de asadores para celebraciones.</div></div></li>
+        <li class="ait"><div class="aico">🌳</div><div><div class="aname">Parque Lineal</div><div class="adesc">Área verde para caminar, correr y convivir en familia.</div></div></li>
+        <li class="ait"><div class="aico">🐕</div><div><div class="aname">Dog Park</div><div class="adesc">Parque exclusivo para mascotas dentro del fraccionamiento.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CALIDAD -->
+<section id="calidad" class="sp">
+  <div class="stag rv">Construcción</div>
+  <h2 class="sh2 rv d1">Lo que no se ve,<br><em>se siente</em></h2>
+  <div class="cgrid">
+    <ul class="slist rv d1">
+      <li class="sitem"><span class="snum">01</span><div><div class="sname">Construcción Tradicional de Excelencia</div><div class="sdesc">100% concreto armado con varilla, bloques de concreto y barroblock aligerante. Cero elementos prefabricados.</div></div></li>
+      <li class="sitem"><span class="snum">02</span><div><div class="sname">Aislamiento Térmico XPS</div><div class="sdesc">Construida con poliestireno extruido (XPS) para eficiencia energética superior y confort interior en cualquier época del año.</div></div></li>
+      <li class="sitem"><span class="snum">03</span><div><div class="sname">Acabados de Lujo</div><div class="sdesc">Pisos, azulejos y detalles artesanales de excelente calidad en todos los espacios.</div></div></li>
+    </ul>
+    <ul class="slist rv d2">
+      <li class="sitem"><span class="snum">04</span><div><div class="sname">Preparada para el Futuro</div><div class="sdesc">Instalaciones listas para paneles solares, equipos minisplit y generador eléctrico de emergencia.</div></div></li>
+      <li class="sitem"><span class="snum">05</span><div><div class="sname">Áreas de Servicio Completas</div><div class="sdesc">Cuarto de servicio con acceso independiente, pasillo lateral y alacena con área de bodega.</div></div></li>
+      <li class="sitem"><span class="snum">06</span><div><div class="sname">Fachada de Autor</div><div class="sdesc">Detalles en madera, cantera, espejo de agua en acceso e iluminación LED arquitectónica.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- OPCIONES -->
+<section id="opciones" class="sp">
+  <div class="stag rv">Tu Casa a Tu Medida</div>
+  <h2 class="sh2 rv d1">Elige tu<br><em>forma de vivirla</em></h2>
+  <div class="pgrid">
+    <div class="pkg rv d1">
+      <span class="pbadge">Opción A</span>
+      <div class="pname">Precio de Salida</div>
+      <div class="pdesc">Precio competitivo diseñado para cuidar tu inversión inicial. Tú eliges y personalizas los acabados finales a tu gusto.</div>
+      <div class="pprice">$10,950,000</div>
+      <div class="pcurr">MXN · Entrega Verano 2026</div>
+      <ul class="plist">
+        <li class="pf">Estructura y obra de excelencia garantizada</li>
+        <li class="pf">Libertad total para elegir acabados finales</li>
+        <li class="pf">Personalización completa de interiores</li>
+        <li class="pf">Todas las preparaciones instaladas (solar, minisplit, generador)</li>
+        <li class="pf">Precio de inversión altamente competitivo</li>
+      </ul>
+      <a href="#contacto" class="btn-ghost">Consultar Detalles</a>
+    </div>
+    <div class="pkg feat rv d2">
+      <span class="pbadge">Opción B · Recomendado</span>
+      <div class="pname">Llave en Mano</div>
+      <div class="pdesc">Recibe tu residencia 100% equipada y lista para habitar desde el primer día. Cocina, clósets, climatización y paneles solares incluidos.</div>
+      <div class="pprice">Consultar</div>
+      <div class="pcurr">MXN · Precio personalizado según especificaciones</div>
+      <ul class="plist">
+        <li class="pf">Todo lo de la Opción A incluido</li>
+        <li class="pf">Cocina integral de diseño instalada</li>
+        <li class="pf">Clósets y carpintería completa</li>
+        <li class="pf">Aires acondicionados instalados y funcionando</li>
+        <li class="pf">Paneles solares operando desde el día 1</li>
+        <li class="pf">Lista para habitar sin gestión adicional</li>
+      </ul>
+      <a href="#contacto" class="btn-fill">Solicitar Cotización</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sp">
+  <div class="stag rv">Siguiente Paso</div>
+  <h2 class="sh2 rv d1">Hagamos que<br><em>sea tuya</em></h2>
+  <div class="cgrid2">
+    <div class="rv d1">
+      <form class="cform" id="cf" novalidate>
+        <div class="crow">
+          <div class="cg"><label class="clbl" for="cf-n">Nombre Completo</label><input class="cinp" id="cf-n" name="nombre" type="text" autocomplete="name" required></div>
+          <div class="cg"><label class="clbl" for="cf-e">Correo Electrónico</label><input class="cinp" id="cf-e" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="crow">
+          <div class="cg"><label class="clbl" for="cf-t">Teléfono</label><input class="cinp" id="cf-t" name="telefono" type="tel" autocomplete="tel"></div>
+          <div class="cg"><label class="clbl" for="cf-i">Interés</label>
+            <select class="csel" id="cf-i" name="interes">
+              <option value="">Seleccionar...</option>
+              <option>Precio de Salida</option>
+              <option>Paquete Llave en Mano</option>
+              <option>Información General</option>
+              <option>Agendar Visita</option>
+            </select>
+          </div>
+        </div>
+        <div class="cg"><label class="clbl" for="cf-m">Mensaje</label><textarea class="ctxt" id="cf-m" name="mensaje" placeholder="¿Qué desea saber sobre la residencia?"></textarea></div>
+        <button type="submit" class="csub">Enviar Consulta →</button>
+        <div class="cok" id="cok">✓ &nbsp;Mensaje enviado. Le contactaremos a la brevedad.</div>
+      </form>
+    </div>
+    <div class="cinfo rv d2">
+      <div>
+        <div class="cilbl">Informes & Citas</div>
+        <div class="cival"><a href="https://wa.me/528126392056">+52 81 2639 2056</a></div>
+        <a href="https://wa.me/528126392056?text=Hola%2C%20me%20interesa%20la%20residencia%20en%20Aysso" target="_blank" rel="noopener" class="wabtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <div>
+        <div class="cilbl">Ubicación</div>
+        <div class="cival" style="font-size:16px;color:var(--dim)">Fraccionamiento Aysso<br>Cañón del Huajuco<br>Nuevo León, México</div>
+      </div>
+      <div>
+        <div class="cilbl">Desarrollado por</div>
+        <img src="LOGO1.png" alt="NiuHomes" style="height:52px;object-fit:contain;opacity:.9;margin-top:8px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="LOGO1.png" alt="NiuHomes" class="flogo">
+  <p class="ftxt">© 2026 NiuHomes · Residencia en Fraccionamiento Aysso · Cañón del Huajuco, Nuevo León · $10,950,000 MXN · Entrega Verano 2026</p>
+  <p class="ftxt" style="opacity:.45">Precios e información sujetos a cambio sin previo aviso. Renders son representaciones artísticas.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lbx" aria-label="Cerrar">×</button>
+  <button id="lbp" aria-label="Anterior">‹</button>
+  <img id="lbi" src="" alt="">
+  <button id="lbn" aria-label="Siguiente">›</button>
+</div>
+
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/528126392056?text=Hola%2C%20me%20interesa%20la%20residencia%20en%20Fraccionamiento%20Aysso" target="_blank" rel="noopener" id="waf" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
+
+// Hamburger
+const ham=document.getElementById('ham'),mnav=document.getElementById('mnav');
+ham.addEventListener('click',()=>mnav.classList.toggle('open'));
+document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>mnav.classList.remove('open')));
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Gallery filter
+const fbns=document.querySelectorAll('.fbtn'),gis=document.querySelectorAll('.gi');
+fbns.forEach(b=>b.addEventListener('click',function(){
+  fbns.forEach(x=>x.classList.remove('on'));this.classList.add('on');
+  const f=this.dataset.f;
+  gis.forEach(i=>i.style.display=(f==='all'||i.dataset.cat===f)?'':'none');
+}));
+
+// Lightbox
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+const lbx=document.getElementById('lbx'),lbp=document.getElementById('lbp'),lbn=document.getElementById('lbn');
+let imgs=[],idx=0;
+
+function getImgs(){return[...document.querySelectorAll('.gi:not([style*="none"]) img')]}
+function open(i){imgs=getImgs();idx=i;lbi.src=imgs[idx].src;lb.classList.add('on');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+
+document.querySelectorAll('.gi').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const a=getImgs(),src=item.querySelector('img').src;
+    const i=a.findIndex(x=>x.src===src);open(i>=0?i:0);
+  });
+});
+
+lbx.addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+lbp.addEventListener('click',()=>{idx=(idx-1+imgs.length)%imgs.length;lbi.src=imgs[idx].src});
+lbn.addEventListener('click',()=>{idx=(idx+1)%imgs.length;lbi.src=imgs[idx].src});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')close();
+  if(e.key==='ArrowLeft')lbp.click();
+  if(e.key==='ArrowRight')lbn.click();
+});
+
+// Contact form
+const cf=document.getElementById('cf'),cok=document.getElementById('cok');
+cf.addEventListener('submit',function(e){
+  e.preventDefault();
+  const n=cf.nombre.value,em=cf.email.value,t=cf.telefono.value,i=cf.interes.value,m=cf.mensaje.value;
+  if(!n||!em){
+    if(!n)cf.nombre.style.borderColor='#e05a5a';
+    if(!em)cf.email.style.borderColor='#e05a5a';
+    return;
+  }
+  const sub=encodeURIComponent(`Consulta Residencia Aysso — ${n}`);
+  const body=encodeURIComponent(`Nombre: ${n}\nEmail: ${em}\nTeléfono: ${t}\nInterés: ${i}\n\nMensaje:\n${m}`);
+  window.location.href=`mailto:aluna76@gmail.com,msmontalvo@gmail.com?subject=${sub}&body=${body}`;
+  cf.reset();cok.style.display='block';
+  setTimeout(()=>cok.style.display='none',7000);
+});
+</script>
+</body>
+</html>
