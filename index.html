@@ -231,6 +231,20 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--p
 .flogo{height:56px;object-fit:contain;opacity:.85}
 .ftxt{font-family:var(--fm);font-size:9px;letter-spacing:.14em;color:var(--muted)}
 
+/* VIDEO EMBEDS */
+.vid-full{margin-top:40px;position:relative;background:var(--bg)}
+.vid-full video{width:100%;display:block;filter:brightness(.95)}
+.vid-meta{display:flex;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap}
+.vid-badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--stone);border:1px solid var(--stone);padding:9px 20px}
+.vid-badge::before{content:'●';font-size:7px;animation:pulse 2s ease-in-out infinite}
+.vid-desc{font-size:13px;font-weight:300;color:var(--muted)}
+.col-vid{margin-top:36px}
+.col-vid video{width:100%;display:block;filter:brightness(.9)}
+.col-vid-lbl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-top:10px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
 /* LIGHTBOX */
 #lb{position:fixed;inset:0;z-index:950;background:rgba(12,10,7,.97);display:flex;align-items:center;
   justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
@@ -285,6 +299,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--p
     <li><a href="#historia">La Residencia</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#fraccionamiento">Fraccionamiento</a></li>
+    <li><a href="#avance">Avance de Obra</a></li>
     <li><a href="#opciones">Opciones</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -297,6 +312,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--p
   <a href="#historia" class="ml">La Residencia</a>
   <a href="#galeria" class="ml">Galería</a>
   <a href="#fraccionamiento" class="ml">Fraccionamiento</a>
+  <a href="#avance" class="ml">Avance de Obra</a>
   <a href="#opciones" class="ml">Opciones</a>
   <a href="#contacto" class="ml">Contacto</a>
 </div>
@@ -433,6 +449,12 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--p
       </ul>
     </div>
   </div>
+  <div class="col-vid rv">
+    <video controls playsinline>
+      <source src="dronecolonia.mp4" type="video/mp4">
+    </video>
+    <p class="col-vid-lbl">Recorrido — Entrada · Avenida Principal · Amenidades · Proximidad a la Residencia</p>
+  </div>
 </section>
 
 <!-- CALIDAD -->
@@ -450,6 +472,21 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:44px var(--p
       <li class="sitem"><span class="snum">05</span><div><div class="sname">Áreas de Servicio Completas</div><div class="sdesc">Cuarto de servicio con acceso independiente, pasillo lateral y alacena con área de bodega.</div></div></li>
       <li class="sitem"><span class="snum">06</span><div><div class="sname">Fachada de Autor</div><div class="sdesc">Detalles en madera, cantera, espejo de agua en acceso e iluminación LED arquitectónica.</div></div></li>
     </ul>
+  </div>
+</section>
+
+<!-- AVANCE DE OBRA -->
+<section id="avance" class="sp">
+  <div class="stag rv">Estado Actual</div>
+  <h2 class="sh2 rv d1">Avance de Obra</h2>
+  <div class="vid-full rv d1">
+    <video controls playsinline poster="ChatGPT Image 3 jun 2026, 11_33_28 a.m..png">
+      <source src="dronecasa.mp4" type="video/mp4">
+    </video>
+    <div class="vid-meta">
+      <span class="vid-badge">Avance a Mayo 2026</span>
+      <span class="vid-desc">Vista aérea del estado actual de la construcción. Entrega estimada verano 2026.</span>
+    </div>
   </div>
 </section>
 
